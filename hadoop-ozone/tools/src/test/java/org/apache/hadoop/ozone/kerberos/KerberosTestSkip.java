@@ -2,6 +2,7 @@ package org.apache.hadoop.ozone.kerberos;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.security.UserGroupInformation;
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,12 @@ public class KerberosTestSkip {
 
     private static final Logger LOG =
             LoggerFactory.getLogger(KerberosTestSkip.class);
+
+    @Before
+    public void init() throws Exception {
+        // init. log4j.
+        Log4jConfigurer.loadLog4j(null);
+    }
 
     @Test
     public void runCLI() throws Exception
