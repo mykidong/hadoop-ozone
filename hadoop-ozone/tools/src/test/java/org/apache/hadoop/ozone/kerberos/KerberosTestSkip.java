@@ -26,6 +26,8 @@ public class KerberosTestSkip {
     @Test
     public void runCLI() throws Exception
     {
+        Log4jConfigurer.loadLog4j("/log4j2-test.xml");
+
         // set kerberos configurations.
         System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");
         System.setProperty("sun.security.krb5.debug", "true");
