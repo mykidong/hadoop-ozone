@@ -3,6 +3,8 @@ package org.apache.hadoop.ozone.kerberos;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.security.UserGroupInformation;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
@@ -10,6 +12,9 @@ import java.util.Arrays;
 import static org.apache.hadoop.ozone.kerberos.StringUtils.fileToString;
 
 public class KerberosTestSkip {
+
+    private static final Logger LOG =
+            LoggerFactory.getLogger(KerberosTestSkip.class);
 
     @Test
     public void runCLI() throws Exception
@@ -32,12 +37,12 @@ public class KerberosTestSkip {
         UserGroupInformation ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(princiapl, keytab);
         if(ugi == null) {
             ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(princiapl, keytab);
-            System.out.println("login done with kerberos!");
+            LOG.info("login done with kerberos!");
         } else {
-            System.out.println("ugi: " + ugi.toString());
+            LOG.info("ugi: " + ugi.toString());
 
             ugi.checkTGTAndReloginFromKeytab();
-            System.out.println("check tgt done with kerberos!");
+            LOG.info("check tgt done with kerberos!");
         }
 
         String[] args = Arrays.asList("getsecret").toArray(new String[0]);
