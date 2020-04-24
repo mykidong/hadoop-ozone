@@ -1,0 +1,108 @@
+<configuration>
+    <property>
+        <name>ozone.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>ozone.metadata.dirs</name>
+        <value>/data01/ozone/meta</value>
+    </property>
+    <property>
+        <name>ozone.scm.names</name>
+        <value>mc-m02.opasnet.io</value>
+    </property>
+    <property>
+        <name>ozone.scm.db.dirs</name>
+        <value>/data01/ozone/scm/db</value>
+    </property>
+    <property>
+        <name>ozone.scm.datanode.id.dir</name>
+        <value>/data01/ozone/meta/node</value>
+    </property>
+    <property>
+        <name>ozone.om.address</name>
+        <value>mc-m01.opasnet.io</value>
+    </property>
+
+    <!-- =============== security =============== -->
+
+    <property>
+        <name>ozone.security.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hadoop.security.authentication</name>
+        <value>kerberos</value>
+    </property>
+
+    <!-- scm -->
+    <property>
+        <name>hdds.scm.kerberos.principal</name>
+        <value>scm/mc-m02.opasnet.io@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>hdds.scm.kerberos.keytab.file</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+    <!-- scm http -->
+    <property>
+        <name>hdds.scm.http.kerberos.principal</name>
+        <value>scm_http/mc-m02.opasnet.io@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>hdds.scm.http.kerberos.keytab</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+
+    <!-- om -->
+    <property>
+        <name>ozone.om.kerberos.principal</name>
+        <value>om/mc-m01.opasnet.io@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>ozone.om.kerberos.keytab.file</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+    <!-- om http -->
+    <property>
+        <name>ozone.om.http.kerberos.principal</name>
+        <value>om_http/mc-m01.opasnet.io@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>ozone.om.http.kerberos.keytab</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+    <!-- s3 -->
+    <property>
+        <name>ozone.s3g.authentication.kerberos.principal</name>
+        <value>s3/mc-m01.opasnet.io@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>ozone.s3g.keytab.file</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+    <!-- data -->
+    <property>
+        <name>dfs.datanode.kerberos.principal</name>
+        <value>data@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>dfs.datanode.keytab.file</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+
+    <!-- data http -->
+    <property>
+        <name>hdds.datanode.http.kerberos.principal</name>
+        <value>data_http@OPASNET.IO</value>
+    </property>
+    <property>
+        <name>hdds.datanode.http.kerberos.keytab</name>
+        <value>/etc/ozone/ozone.keytab</value>
+    </property>
+</configuration>

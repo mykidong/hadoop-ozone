@@ -28,6 +28,11 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <name>Apache Hadoop Ozone Tools</name>
   <packaging>jar</packaging>
 
+  <properties>
+    <!-- spring -->
+    <spring.version>5.1.9.RELEASE</spring.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
@@ -127,6 +132,12 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

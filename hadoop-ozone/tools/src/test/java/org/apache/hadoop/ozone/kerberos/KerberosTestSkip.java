@@ -4,7 +4,10 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.security.UserGroupInformation;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
+
+import static org.apache.hadoop.ozone.kerberos.StringUtils.fileToString;
 
 public class KerberosTestSkip {
 
@@ -14,9 +17,13 @@ public class KerberosTestSkip {
         String princiapl = "mykidong/mc-d02.opasnet.io@OPASNET.IO";
         String keytab = "/etc/ozone/ozone.keytab";
 
-        Configuration conf = new Configuration();
-        conf.set("hadoop.security.authentication", "kerberos");
-        UserGroupInformation.setConfiguration(conf);
+        Configuration hadoopConfiguration = new Configuration();
+
+        // ozone configuration.
+        String ozoneConf = fileToString("ozone-site.xml");
+        hadoopConfiguration.addResource(new ByteArrayInputStream(ozoneConf.getBytes()));
+
+        UserGroupInformation.setConfiguration(hadoopConfiguration);
 
         UserGroupInformation ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(princiapl, keytab);
         if(ugi == null) {
