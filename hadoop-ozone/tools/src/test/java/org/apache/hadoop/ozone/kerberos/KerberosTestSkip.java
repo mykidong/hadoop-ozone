@@ -20,12 +20,13 @@ public class KerberosTestSkip {
     @Before
     public void init() throws Exception {
         // init. log4j.
-        Log4jConfigurer.loadLog4j(null);
+        Log4jConfigurer.loadLog4j("/log4j2-test.xml");
     }
 
     @Test
     public void runCLI() throws Exception
     {
+        // set kerberos configurations.
         System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");
         System.setProperty("sun.security.krb5.debug", "true");
 
@@ -54,6 +55,6 @@ public class KerberosTestSkip {
 
         String[] args = Arrays.asList("getsecret").toArray(new String[0]);
 
-        new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
+//        new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
     }
 }
