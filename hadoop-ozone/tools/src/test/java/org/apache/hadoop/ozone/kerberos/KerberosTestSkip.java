@@ -30,7 +30,7 @@ public class KerberosTestSkip {
         System.setProperty("sun.security.krb5.debug", "true");
 
 
-        String princiapl = "mykidong/mc-d02.opasnet.io@OPASNET.IO";
+        String principal = "mykidong/mc-d02.opasnet.io@OPASNET.IO";
         String keytab = "/etc/ozone/ozone.keytab";
 
         Configuration hadoopConfiguration = new Configuration();
@@ -41,9 +41,9 @@ public class KerberosTestSkip {
 
         UserGroupInformation.setConfiguration(hadoopConfiguration);
 
-        UserGroupInformation ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(princiapl, keytab);
+        UserGroupInformation ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(principal, keytab);
         if(ugi == null) {
-            ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(princiapl, keytab);
+            ugi = UserGroupInformation.loginUserFromKeytabAndReturnUGI(principal, keytab);
             LOG.info("login done with kerberos!");
         } else {
             LOG.info("ugi: " + ugi.toString());
@@ -53,7 +53,7 @@ public class KerberosTestSkip {
         }
 
         String[] args = Arrays.asList("getsecret").toArray(new String[0]);
-//
-//        new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
+
+        new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
     }
 }
