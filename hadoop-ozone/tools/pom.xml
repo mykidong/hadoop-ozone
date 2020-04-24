@@ -152,7 +152,7 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
           <fork>true</fork>
           <maxHeap>2048</maxHeap>
         </configuration>
-      </plugin>     
+      </plugin>
     </plugins>
   </build>
 </project>
