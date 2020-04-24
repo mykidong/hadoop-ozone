@@ -14,6 +14,10 @@ public class KerberosTestSkip {
     @Test
     public void runCLI() throws Exception
     {
+        System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");
+        System.setProperty("sun.security.krb5.debug", "true");
+
+
         String princiapl = "mykidong/mc-d02.opasnet.io@OPASNET.IO";
         String keytab = "/etc/ozone/ozone.keytab";
 
