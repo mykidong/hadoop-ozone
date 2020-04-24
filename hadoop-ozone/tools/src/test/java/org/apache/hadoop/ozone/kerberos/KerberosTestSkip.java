@@ -56,5 +56,7 @@ public class KerberosTestSkip {
         String[] args = Arrays.asList("getsecret").toArray(new String[0]);
 
         new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
+
+        Thread.sleep(Long.MAX_VALUE);
     }
 }
