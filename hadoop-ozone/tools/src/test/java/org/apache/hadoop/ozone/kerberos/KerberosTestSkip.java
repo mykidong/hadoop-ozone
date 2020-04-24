@@ -53,7 +53,7 @@ public class KerberosTestSkip {
             LOG.info("check tgt done with kerberos!");
         }
 
-        String[] args = Arrays.asList("getsecret").toArray(new String[0]);
+        String[] args = Arrays.asList("ozone", "-config", "/home/mc/ozone/ozone-0.4.1-alpha/etc/hadoop", "s3", "getsecret").toArray(new String[0]);
 
         new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
 
