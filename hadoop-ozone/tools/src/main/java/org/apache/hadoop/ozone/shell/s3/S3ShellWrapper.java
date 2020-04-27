@@ -1,30 +1,19 @@
-package org.apache.hadoop.ozone.kerberos;
+package org.apache.hadoop.ozone.shell.s3;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.security.UserGroupInformation;
-import org.junit.Before;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
-import java.util.Arrays;
 
-import static org.apache.hadoop.ozone.kerberos.StringUtils.fileToString;
+import static org.apache.hadoop.ozone.shell.s3.StringUtils.fileToString;
 
-public class KerberosTestSkip {
+public class S3ShellWrapper  {
 
-    private static final Logger LOG =
-            LoggerFactory.getLogger(KerberosTestSkip.class);
+    private static Logger LOG = LoggerFactory.getLogger(S3ShellWrapper.class);
 
-    @Before
-    public void init() throws Exception {
-        // init. log4j.
-        Log4jConfigurer.loadLog4j("/log4j2-test.xml");
-    }
-
-    @Test
-    public void runCLI() throws Exception
+    public static void main(String[] args) throws Exception
     {
         // set kerberos configurations.
         System.setProperty("java.security.krb5.conf", "/etc/krb5.conf");
@@ -53,10 +42,6 @@ public class KerberosTestSkip {
             LOG.info("check tgt done with kerberos!");
         }
 
-        String[] args = Arrays.asList("ozone", "-config", "/home/mc/ozone/ozone-0.4.1-alpha/etc/hadoop", "s3", "getsecret").toArray(new String[0]);
-
-        new org.apache.hadoop.ozone.shell.s3.S3Shell().run(args);
-
-        Thread.sleep(Long.MAX_VALUE);
+        new S3Shell().run(args);
     }
 }

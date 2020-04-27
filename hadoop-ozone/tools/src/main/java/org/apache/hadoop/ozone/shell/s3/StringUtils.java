@@ -1,4 +1,4 @@
-package org.apache.hadoop.ozone.kerberos;
+package org.apache.hadoop.ozone.shell.s3;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;

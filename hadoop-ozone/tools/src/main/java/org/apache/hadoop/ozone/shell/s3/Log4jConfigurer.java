@@ -1,4 +1,4 @@
-package org.apache.hadoop.ozone.kerberos;
+package org.apache.hadoop.ozone.shell.s3;
 
 import org.apache.log4j.xml.DOMConfigurator;
 import org.slf4j.Logger;

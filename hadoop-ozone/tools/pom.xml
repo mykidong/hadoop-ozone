@@ -138,7 +138,6 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>${spring.version}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
